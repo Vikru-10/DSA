@@ -1,0 +1,40 @@
+Question Link - https://leetcode.com/problems/contains-duplicate/        
+        
+        Best Solution #2 - O(n) Accepted
+        
+        """"dictionary = dict();
+        for values in nums:
+            dictionary.update({values:dictionary.setdefault(values,0)+1});
+        for keys in dictionary:
+            if(dictionary.get(keys)>1):
+                return True;
+        return False;"""
+        
+        
+        Best Solution #1 - O(n) Accepted
+        
+        """"hashset = set();
+        for values in nums:
+            if(values in hashset):
+                return True;
+            hashset.add(values);
+        return False;"""
+        
+        
+        Optimised Solution - O(n*nlogn) Accepted
+        
+        """"nums.sort();
+        for i in range(len(nums)-1):
+            if(nums[i]==nums[i+1]):
+                return True;
+        return False;"""
+        
+        
+        
+        Brute Force - O(n2) TLE
+        
+        """"for i in range(len(nums)):
+            for j in range(i+1,len(nums)):
+                if(nums[i]==nums[j]):
+                  return True;
+        return False;"""
