@@ -1,0 +1,23 @@
+Question Link - https://leetcode.com/problems/two-sum/  
+  
+       Best Solution - Time O(n), Space O(n) #Accepted
+  
+        """"dict = {}; result = [];
+        for i in range(len(nums)):
+            num = target - nums[i];
+            if(i!=0 and num in dict):
+                result.append(dict.get(num));
+                result.append(i);
+                return result;
+            dict[nums[i]] = i;"""
+        
+        Brute Force - Time O(n2), Space O(1) #Accepted
+        
+        """"result = [];
+        for i in range(len(nums)-1):
+            for j in range(i+1,len(nums)):
+                sum = nums[i] + nums[j];
+                if(sum==target):
+                    result.append(i);
+                    result.append(j);
+                    return result;"""
