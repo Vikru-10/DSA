@@ -1,17 +1,19 @@
 Question Link - https://leetcode.com/problems/two-sum/  
   
        Best Solution - Time O(n), Space O(n) #Accepted
+       Trick(Using Dictionary To Store Value And Its Index Then Checking For The Compliment)
   
         """"dict = {}; result = [];
         for i in range(len(nums)):
-            num = target - nums[i];
-            if(i!=0 and num in dict):
-                result.append(dict.get(num));
+            compliment = target - nums[i];
+            if(i!=0 and compliment in dict):
+                result.append(dict.get(compliment));
                 result.append(i);
                 return result;
             dict[nums[i]] = i;"""
         
         Brute Force - Time O(n2), Space O(1) #Accepted
+        Trick(Nothing's There Just Two Normal For Loops And Checking The Pairs Making Sum Equal To The Target)
         
         """"result = [];
         for i in range(len(nums)-1):
