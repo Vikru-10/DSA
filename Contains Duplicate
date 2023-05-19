@@ -1,6 +1,6 @@
 Question Link - https://leetcode.com/problems/contains-duplicate/        
         
-        Best Solution #2 - Time O(n), Space O(n) Accepted
+        Best Solution #2 - Time O(n), Space O(n) #Accepted
         Trick(Using Dictionary To Count Frequency)
         
         """"dictionary = dict();
@@ -12,7 +12,7 @@ Question Link - https://leetcode.com/problems/contains-duplicate/
         return False;"""
         
         
-        Best Solution #1 - Time O(n), Space O(n) Accepted
+        Best Solution #1 - Time O(n), Space O(n) #Accepted
         Trick(Using HashSet To Check Uniqueness)
         
         """"hashset = set();
@@ -23,7 +23,7 @@ Question Link - https://leetcode.com/problems/contains-duplicate/
         return False;"""
         
         
-        Optimised Solution - Time O(nlogn), Space O(1) Accepted
+        Optimised Solution - Time O(nlogn), Space O(1) #Accepted
         Trick(Using Sorting)
         
         """"nums.sort();
@@ -34,7 +34,7 @@ Question Link - https://leetcode.com/problems/contains-duplicate/
         
         
         
-        Brute Force - Time O(n2), Space O(1) TLE
+        Brute Force - Time O(n2), Space O(1) #TLE
         Trick(Using 2 For Loops)
         
         """"for i in range(len(nums)):
