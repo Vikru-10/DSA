@@ -1,6 +1,6 @@
 Question Link - https://leetcode.com/problems/valid-anagram/
 
-       Best Solution but with Space O(sfreq+tfreq) and Time O(n) roughly
+       Best Solution but with Space O(sfreq+tfreq) and Time O(n) roughly #Accepted
        Trick(Using two dictionary)
 
         """"if(len(s)!=len(t)):
@@ -11,7 +11,7 @@ Question Link - https://leetcode.com/problems/valid-anagram/
             tfreq.update({t[c]:tfreq.setdefault(t[c],0)+1});
         return sfreq==tfreq;"""
         
-        Brute Force - Time O(nlogn), Space O(1)
+        Brute Force - Time O(nlogn), Space O(1) #Accepted
         Trick(Sorting)
         
         """"return sorted(s)==sorted(t);"""
