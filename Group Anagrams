@@ -1,0 +1,13 @@
+Question link - https://leetcode.com/problems/group-anagrams/     
+     
+        Time O(nlongn) Space O(n+m)
+        Trick(Using Sorting + Dictionary With Key As A Sorted Key Anagram And Value Ad A List Of Similar Anagrams)
+     
+        dict = defaultdict(list);
+        for s in strs:
+            str = ''.join(sorted(s));
+            dict[str].append(s);
+        result = [];
+        for keys in dict:
+            result.append(dict.get(keys));
+        return result;
