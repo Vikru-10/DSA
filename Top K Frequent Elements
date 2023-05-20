@@ -1,0 +1,43 @@
+Question Link - https://leetcode.com/problems/top-k-frequent-elements/
+
+        Best Solution - Time O(n), Space O(n+m) 
+        Trick(Using Bucket Technique To Use Frequency As A Key And Key As List of Values)
+ 
+        freqhash = {};
+        for i in nums:
+            freqhash[i] = freqhash.get(i,0)+1;
+        
+        hashmap = {};
+        for i in range(1,len(nums)+1):
+            hashmap.update({i:[]});
+        
+        for keys in freqhash:
+            hashmap[freqhash[keys]].append(keys);
+            
+        result = []; i = len(nums);
+        
+        while(i>0):
+            if(hashmap.get(i)):
+                for values in hashmap.get(i):
+                    if(k>0):
+                        k -= 1;
+                        result.append(values);
+                    else:
+                        return result;
+            i -= 1;
+        
+        return result;
+        
+        Brute Force - Time O(nlongn), Space o(n)
+        Trick(Using Sorting, Sort According To The Frequency, Remember (-) Priority In Python To Put Smaller First In Pair)
+        
+        hashmap = {};
+        for values in nums:
+            hashmap[values] = hashmap.get(values,0)+1;
+        heap = [];
+        for key in hashmap:
+            heapq.heappush(heap,(-hashmap[key],key));
+        result = [];
+        for i in range(k):
+            result.append(heapq.heappop(heap)[1]);
+        return result;
