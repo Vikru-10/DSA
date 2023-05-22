@@ -1,0 +1,38 @@
+Question Link - https://leetcode.com/problems/product-of-array-except-self/
+
+        Brute Force - Time O(n2), Space O(1) #TLE
+        Trick(Two Loops & Finding Product Except Self)
+
+        res = [];
+        for i in range(len(nums)):
+            pro = 1;
+            for j in range(len(nums)):
+                if(j!=i):
+                    pro *= nums[j];
+            res.append(pro);
+            
+        return res;
+        
+        
+        Best Solution #1 - Time O(n), Space O(n) #Accepted
+        
+        left, right = [],[];
+        pro = 1;
+        for num in nums:
+            pro *= num;
+            left.append(pro);
+        pro = 1;
+        for i in range(len(nums)-1,-1,-1):
+            pro *= nums[i];
+            right.append(pro);
+        right.reverse();
+        res = [];
+        for i in range(len(nums)):
+            if(i==0):
+                res.append(right[i+1]);
+            else:
+                if(i==len(nums)-1):
+                    res.append(left[i-1]);
+                else:
+                    res.append(left[i-1]*right[i+1]);
+        return res;
