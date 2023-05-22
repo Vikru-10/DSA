@@ -15,6 +15,7 @@ Question Link - https://leetcode.com/problems/product-of-array-except-self/
         
         
         Best Solution #1 - Time O(n), Space O(n) #Accepted
+        Trick(Observation After Creating Prefix And Postfix Array)
         
         left, right = [],[];
         pro = 1;
