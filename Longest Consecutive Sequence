@@ -1,0 +1,54 @@
+Question Link - https://leetcode.com/problems/longest-consecutive-sequence/
+
+        Brute Force - Time O(n2), space O(n)
+        Trick(Nothing To Be Clever Done Here)
+
+        hashset = set();
+        for num in nums:
+            hashset.add(num);
+        res = 0;
+        for num in nums:
+            length = 0;
+            while(num in hashset):
+                length += 1;
+                num += 1;
+            res = max(res,length);
+        return res;
+        
+        Optimised Solution - Time O(nlogn), Space O(1)
+        Trick(Using Sorting)
+        
+        if(len(nums)==1):
+            return 1;
+        res = 0;
+        nums.sort();
+        length = 1;
+        for i in range(len(nums)-1):
+            if(nums[i]+1==nums[i+1]):
+                length += 1;
+            else:
+                if(nums[i]!=nums[i+1]):
+                    length = 1;
+            res = max(length,res);
+        return res;
+        
+        Best Solution - Time O(n) (Despite Looking O(n2) It's Linear, Space O(n)
+        Trick(Using HashMap We Are Finding The Starting Sequence Number i.e Number-1 If It Is Not Present Then That's The One)
+        
+        hashmap = {};
+        for num in nums:
+            hashmap[num] = False;
+        for num in nums:
+            if(num-1 not in hashmap):
+                hashmap.update({num:True});
+        res = 0;
+        for key in hashmap:
+            if(hashmap.get(key)):
+                length = 0;
+                while(key in hashmap):
+                    length += 1;
+                    key += 1;
+                res = max(length,res);
+        return res;
+        
+     
