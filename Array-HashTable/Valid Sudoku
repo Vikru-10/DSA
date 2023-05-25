@@ -1,6 +1,6 @@
 Question Link - https://leetcode.com/problems/valid-sudoku/
        
-       Solution #1 - Time O(n2), space O(n2) bcz DS in DS
+       Solution #1 - Time O(n2), space O(n2) bcz DS in DS #Accepted
        Trick(Using HashMap Key As Depending On Column,Row,Square And Storing HashSet As A Value Also Dividing Square As Row//3,Col//3) 
        
        row = collections.defaultdict(set);
