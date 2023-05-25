@@ -1,6 +1,6 @@
 Question Link - https://leetcode.com/problems/longest-consecutive-sequence/
 
-        Brute Force - Time O(n2), space O(n)
+        Brute Force - Time O(n2), space O(n) #TLE
         Trick(Nothing To Be Clever Done Here)
 
         hashset = set();
@@ -15,7 +15,7 @@ Question Link - https://leetcode.com/problems/longest-consecutive-sequence/
             res = max(res,length);
         return res;
         
-        Optimised Solution - Time O(nlogn), Space O(1)
+        Optimised Solution - Time O(nlogn), Space O(1) #Accepted
         Trick(Using Sorting)
         
         if(len(nums)==1):
@@ -32,7 +32,7 @@ Question Link - https://leetcode.com/problems/longest-consecutive-sequence/
             res = max(length,res);
         return res;
         
-        Best Solution - Time O(n) (Despite Looking O(n2) It's Linear, Space O(n)
+        Best Solution - Time O(n) (Despite Looking O(n2) It's Linear, Space O(n) #Accepted
         Trick(Using HashMap We Are Finding The Starting Sequence Number i.e Number-1 If It Is Not Present Then That's The One)
         
         hashmap = {};
