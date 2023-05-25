@@ -1,6 +1,6 @@
 Question link - https://leetcode.com/problems/group-anagrams/     
      
-        Time O(nlongn) Space O(n+m)
+        Solution #1 - Time O(nlongn) Space O(n+m) #Accepted
         Trick(Using Sorting + Dictionary With Key As A Sorted Key Anagram And Value Ad A List Of Similar Anagrams)
      
         dict = defaultdict(list);
