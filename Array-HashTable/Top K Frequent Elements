@@ -1,6 +1,6 @@
 Question Link - https://leetcode.com/problems/top-k-frequent-elements/
 
-        Best Solution - Time O(n), Space O(n+m) 
+        Best Solution - Time O(n), Space O(n+m) #Accepted
         Trick(Using Bucket Technique To Use Frequency As A Key And Key As List of Values)
  
         freqhash = {};
@@ -28,7 +28,7 @@ Question Link - https://leetcode.com/problems/top-k-frequent-elements/
         
         return result;
         
-        Brute Force - Time O(nlongn), Space o(n)
+        Brute Force - Time O(nlongn), Space o(n) #Accepted
         Trick(Using Sorting, Sort According To The Frequency, Remember (-) Priority In Python To Put Smaller First In Pair)
         
         hashmap = {};
