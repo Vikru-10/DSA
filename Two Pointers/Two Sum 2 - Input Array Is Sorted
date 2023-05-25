@@ -1,0 +1,24 @@
+Question Link - https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
+
+        Brute Force - Time O(n2), Space O(1) #TLE
+        Trick(Nothing to be clever done here)
+
+        for i in range(len(numbers)-1):
+            for j in range(i+1,len(numbers)):
+                sum = numbers[i] + numbers[j];
+                if(sum==target):
+                    return [i+1,j+1];
+        
+        Best Solution - Time O(n), Space O(1) #Accepted
+        Trick(Two pointers because array is sorted and we can predetermined the positions of i and j also search space can be predetermined with sum, on incrementing i would increase the sum and on decreasing j sum would recuce i.e bcz array is sorted)
+        
+        i, j = 0, len(numbers)-1;
+        while(i<j):
+            sum = numbers[i] + numbers[j];
+            if(sum==target):
+                return [i+1,j+1];
+            if(sum<target):
+                i += 1;
+            else:
+                j -= 1;
+              
