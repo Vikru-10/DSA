@@ -1,0 +1,17 @@
+Question Link - https://leetcode.com/problems/valid-sudoku/
+       
+       Solution #1 - Time O(n2), space O(n2) bcz DS in DS
+       Trick(Using HashMap Key As Depending On Column,Row,Square And Storing HashSet As A Value Also Dividing Square As Row//3,Col//3) 
+       
+       row = collections.defaultdict(set);
+        col = collections.defaultdict(set);
+        square = collections.defaultdict(set);
+        for i in range(9):
+            for j in range(9):
+                if(board[i][j]!="."):
+                    if(board[i][j] in row[i] or board[i][j] in col[j] or board[i][j] in square[(i//3,j//3)]):
+                        return False;
+                    row[i].add(board[i][j]);
+                    col[j].add(board[i][j]);
+                    square[(i//3,j//3)].add(board[i][j]);
+        return True;
