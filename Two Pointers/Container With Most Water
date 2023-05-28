@@ -1,7 +1,7 @@
 Question Link - https://leetcode.com/problems/container-with-most-water/
 
         Best Solution - Time O(n), Space O(1) #Accepted
-        Trick(Think about how you would find the area other than that with two pointer its an easy one)
+        Trick(Think about how would you find the area other than that with two pointer its an easy one)
 
         """"res = 0;
         i, j = 0, len(height)-1;
