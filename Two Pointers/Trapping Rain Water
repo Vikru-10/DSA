@@ -1,0 +1,35 @@
+Question Link - https://leetcode.com/problems/trapping-rain-water/
+
+        Best Solution - Time O(n), Space O(1) #Accepted
+        Trick(Using two pointers i,j and tracking down the maxleft and maxright from both positions after inc/dec thats the trick you have to observe and with two pointers you have to track something and that can be done by using variables which is maxleft and maxright in this case)
+
+        """"res, i, j, maxleft, maxright = 0, 0, len(height)-1, 0, 0;
+        while(i<j):
+            maxright = max(height[j],maxright);
+            maxleft = max(height[i],maxleft);
+            res += min(maxleft,maxright) - min(height[i],height[j])
+            if(height[i]<height[j]):
+                i += 1;
+            else:
+                if(height[i]>height[j]):
+                    j -= 1;
+                else:
+                    i += 1;
+        return res;"""
+        
+        Brute Force - Time O(n2), Space O(1) #TLE
+        Trick(Nothing clever, Just finding maxleft and maxright from each position and calculating our water)
+        
+        """"res = 0
+        for i in range(len(height)):
+            j,k = i-1, i+1
+            maxleft, maxright = height[i], height[i];
+            while(j>=0):
+                maxleft = max(maxleft,height[j]);
+                j -= 1;
+            while(k<len(height)):
+                maxright = max(maxright,height[k]);
+                k += 1;
+            if(maxleft!=height[i] and maxright!=height[i]):
+                res += (min(maxleft,maxright) - height[i]);
+        return res;"""
