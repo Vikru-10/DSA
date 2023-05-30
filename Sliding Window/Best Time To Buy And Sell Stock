@@ -1,0 +1,30 @@
+Question Link - https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+
+        Best Solution #2 - Time O(n), Space O(1) #Accepted
+        Trick(Typical sliding window)
+        
+        profit, i, j = 0, 0, 1
+        while(j<len(prices)):
+            profit = max(profit,prices[j]-prices[i])
+            if(prices[i]>prices[j]):
+                i = j
+            j += 1
+        return profit;
+        
+        Best Solution #1 - Time O(n), Space O(1) #Accepted
+        Trick(picking mini while going linear and then finding the profit)
+        
+        """"profit,mini = 0, prices[0]
+        for price in prices:
+            profit = max(profit,price-mini)
+            mini = min(mini,price);
+        return profit;"""
+
+        Brute Force - Time O(n2), Space O(1) #TLE
+        Trick(Nothing clever, finding all possible pairs and checking profit)
+        
+        """profit = 0
+        for i in range(len(prices)):
+            for j in range(i+1,len(prices)):
+                profit = max(profit,prices[j]-prices[i])
+        return profit;"""
