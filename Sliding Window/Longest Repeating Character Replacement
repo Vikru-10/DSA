@@ -1,0 +1,36 @@
+Question Link - https://leetcode.com/problems/longest-repeating-character-replacement/
+
+        Best Solution #1 - Time O(n), Space O(n) #Accepted
+        Trick(Replacing character with by excluding character having highest frequency and check if remaining window size is less than or equal to k)
+
+        """"maxlen, l = 0, 0
+        hashmap = {}
+        for r in range(len(s)):
+            hashmap[s[r]] = hashmap.get(s[r],0)+1
+            maxf = 0
+            for key in hashmap:
+                maxf = max(maxf,hashmap.get(key))
+            if((r-l+1)-maxf<=k):
+                maxlen = max(maxlen,r-l+1)
+            else:
+                while((r-l+1)-maxf>k):
+                    hashmap[s[l]] = hashmap.get(s[l]) - 1
+                    l += 1
+        return maxlen"""
+        
+        Brute Force - Time O(n2), Space O(1) #TLE
+        Trick(Remember always in string to try all possible characters if possible in any solution because overall character is 26 depending on the question obviously but in most of the cases try to do it)
+        
+        """"maxlen = 0
+        for c in range(65,91):
+            ch = chr(c)
+            for i in range(len(s)):
+                currlen, t = 0, k
+                for j in range(i,len(s)):
+                    if(s[j]!=ch and t==0):
+                        break
+                    currlen += 1
+                    if(s[j]!=ch):
+                        t -= 1
+                maxlen = max(maxlen,currlen)
+        return maxlen"""
