@@ -1,0 +1,46 @@
+Question Link - https://leetcode.com/problems/permutation-in-string/
+
+        Best Solution #1 - Time O(n), Space O(n) #Accepted
+        Trick(Trying unique characters way by using hashmap)
+
+        """"l, hashmap, win = 0, {}, len(s1)
+        
+        for c in s1:
+            hashmap[c] = hashmap.get(c,0)+1
+            
+        count = len(hashmap)
+            
+        for r in range(len(s2)):
+            right = s2[r]
+            
+            if(right in hashmap):
+                hashmap[right] = hashmap.get(right,0) - 1
+                if(hashmap.get(right)==0):
+                    count -= 1
+                    
+            if(r-l+1==win):
+                if(count==0):
+                    return True
+                left = s2[l]
+                if(left in hashmap):
+                    hashmap[left] = hashmap[left] + 1
+                    if(hashmap.get(left)==1):
+                        count += 1
+                l += 1
+        
+        return False"""
+        
+        Brute Force - Time O(n2), Space O(1)
+        Trick(Nothing clever)
+        
+        """"s1 = sorted(s1)
+        l, s, win = 0, "", len(s1)
+        for r in range(len(s2)):
+            s += s2[r]
+            if(r-l+1==win):
+                a = sorted(s)
+                if(s1==a):
+                    return True
+                s = s[1:]
+                l += 1
+        return False"""
