@@ -27,7 +27,7 @@ Question Link - https://leetcode.com/problems/minimum-window-substring/
                     ans = string
         return ans"""
         
-        Best Solution #1 - Time O(n+m), Space O(n)
+        Best Solution #1 - Time O(n+m), Space O(n) #Accepted
         Trick(Calculating two indices l1, r1 first by sliding window then retrieving the string between l1, r1, remember to use count+hashmap technique)
         
         """"l, r, ans, hashmap, mini, l1, r1 = 0, 0, "", {}, len(s), -1, -1
