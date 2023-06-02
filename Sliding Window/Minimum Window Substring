@@ -1,0 +1,69 @@
+Question Link - https://leetcode.com/problems/minimum-window-substring/
+
+        Brute Force - Time O(n2), Space O(j*n) #TLE
+        Trick(Nothing Clever)
+
+        """"if(len(t)>len(s)):
+            return ""
+        mapt, mini, ans = {}, len(s), ""
+        for c in t:
+            mapt[c] = mapt.get(c,0) + 1
+        for i in range(len(s)):
+            maps, string = {}, ""
+            for j in range(i,len(s)):
+                flag = 0
+                string += s[j]
+                if(s[j] in mapt):
+                    maps[s[j]] = maps.get(s[j],0) + 1
+                for key in mapt:
+                    if(key not in maps):
+                        flag = 1
+                        break
+                    if(maps[key]<mapt[key]):
+                        flag = 1
+                        break
+                if(flag==0 and mini>=(j-i+1) and len(maps)==len(mapt)):
+                    mini = min(mini,j-i+1)
+                    ans = string
+        return ans"""
+        
+        Best Solution #1 - Time O(n+m), Space O(n)
+        Trick(Calculating two indices l1, r1 first by sliding window then retrieving the string between l1, r1, remember to use count+hashmap technique)
+        
+        """"l, r, ans, hashmap, mini, l1, r1 = 0, 0, "", {}, len(s), -1, -1
+        for c in t:
+            hashmap[c] = hashmap.get(c,0) + 1
+        count = len(hashmap)
+        while(r<len(s)):
+            rkey = s[r]
+            
+            if(rkey in hashmap):
+                hashmap[rkey] = hashmap.get(rkey) - 1
+                if(hashmap.get(rkey)==0):
+                    count -= 1
+            
+            while(count==0):
+                
+                if(mini>=(r-l+1)):
+                    mini = r-l+1
+                    l1 = l
+                    r1 = r
+                
+                lkey = s[l]
+                
+                if(lkey in hashmap):
+                    hashmap[lkey] = hashmap.get(lkey) + 1
+                    if(hashmap.get(lkey)==1):
+                        count += 1
+                l += 1
+            
+            r += 1
+            
+        if(l1==-1):
+            return ""
+            
+        while(l1<=r1):
+            ans += s[l1]
+            l1 += 1
+            
+        return ans """
