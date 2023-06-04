@@ -1,0 +1,49 @@
+Question Link - https://leetcode.com/problems/sliding-window-maximum/submissions/
+
+        Most Optimal - Time O(n), Space O(n) #Accepted
+        Trick(Using monotonic deque why? insertion and deletion from the start and end takes o(1) and also repeated calculations can be avoided, we are deleting elemnets once and inserting once that's why Time O(n))
+
+        """"l, deque, res = 0, collections.deque(), []
+        for r in range(len(nums)):
+            while(deque and deque[-1]<nums[r]):
+                deque.pop()
+            deque.append(nums[r])
+            if(r-l+1==k):
+                res.append(deque[0])
+                if(deque[0]==nums[l]):
+                    deque.popleft()
+                l += 1
+        return res"""
+        
+        Optimal - Time O(nlogn), Space O(n) #TLE
+        Trick(Using priority queue to track maximum and then removing as left progresses)
+        
+        int l = 0;
+        int[] res = new int[(nums.length/k)*k];
+        PriorityQueue<Integer> pq = new PriorityQueue<Integer>(Collections.reverseOrder());
+        for(int r=0;r<nums.length;r++)
+        {
+            pq.add(nums[r]);
+            if(r-l+1==k)
+            {
+                int value = pq.peek();
+                res[l] = value;
+                pq.remove(nums[l]);
+                l++;
+            }
+        }
+        return res;
+        
+        Brute Force - Time Roughly O(n2), Space O(1) #TLE
+        Trick(Nothing clever)
+        
+        """"res = []
+        l, r = 0, k-1
+        while(r<len(nums)):
+            maxi = nums[l]
+            for i in range(l,r+1):
+                maxi = max(maxi,nums[i])
+            res.append(maxi)
+            l += 1
+            r += 1
+        return res"""
