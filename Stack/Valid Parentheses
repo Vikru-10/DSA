@@ -1,0 +1,45 @@
+Question link - 
+
+        Most Optimal - Time O(n), Space O(n) #Accepted
+        Trick(To use stack for tracking, why stack? pop operation would take O(1))
+
+        """"stack = deque()
+        lst, hashmap = [], {
+            ')' : '(',
+            ']' : '[',
+            '}' : '{',
+        }
+        for bracket in s:
+            if(bracket not in hashmap):
+                stack.append(bracket)
+            else:
+                if(not stack):
+                    return False
+                if(stack[-1]!=hashmap[bracket]):
+                    return False
+                stack.pop()
+        if(stack):
+            return False
+        return True"""
+        
+        Brute Force - Time O(n2), Space O(n) #Accepted
+        Trick(All same but using list would increase time complexity because removing an element from the list takes o(n))
+        
+        """"lst, hashmap = [], {
+            ')' : '(',
+            ']' : '[',
+            '}' : '{',
+        }
+        for bracket in s:
+            if(bracket not in hashmap):
+                lst.append(bracket)
+            else:
+                if(not lst):
+                    return False
+                if(lst[-1]!=hashmap[bracket]):
+                    return False
+                lst.pop(-1)
+        if(lst):
+            return False
+        return True"""
+            
