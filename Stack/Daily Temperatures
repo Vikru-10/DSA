@@ -1,7 +1,7 @@
 Question Link - https://leetcode.com/problems/daily-temperatures/
 
         Optimal #2 - Time O(n), Space O(n) #Accepted
-        Trick(Using monotonic decreasing stack concept to find next max)
+        Trick(Using monotonic stack concept to find next max)
 
         n, stack = len(temperatures), deque()
         answer = [0] * n
