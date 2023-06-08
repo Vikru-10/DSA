@@ -1,0 +1,45 @@
+Question Link - 
+
+        Most Optimal - Time O(n), Space(n) 
+        Trick(Polish notation concept using stack)
+
+        stack = deque()
+
+        for val in tokens:
+            if(val=='+' or val=='-' or val=='*' or val=='/'):
+                b = stack.pop()
+                a = stack.pop()
+                if val=='+':
+                    stack.append(a+b)
+                elif val=='-':
+                    stack.append(a-b)
+                elif val=='*':
+                    stack.append(a*b)
+                else:
+                    stack.append(int(a/b))
+            else:
+                stack.append(int(val))
+        
+        return stack[-1]
+        
+        Brute Force - Time O(n2), Space O(n) (Because list insertion & deletion operation which takes roughly O(n))
+        Trick(Polish notation concept using list)
+        
+        """"lst = []
+
+        for val in tokens:
+            if(val=='+' or val=='-' or val=='*' or val=='/'):
+                b = lst.pop(-1)
+                a = lst.pop(-1)
+                if val=='+':
+                    lst.append(a+b)
+                elif val=='-':
+                    lst.append(a-b)
+                elif val=='*':
+                    lst.append(a*b)
+                else:
+                    lst.append(int(a/b))
+            else:
+                lst.append(int(val))
+        
+        return lst[-1]"""
