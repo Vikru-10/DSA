@@ -1,6 +1,6 @@
 Question Link - 
 
-        Optimal #2 - Time O(n), Space O(n) 
+        Optimal #2 - Time O(n), Space O(n) #Accepted
         Trick(Using monotonic decreasing stack concept to find next max)
 
         n, stack = len(temperatures), deque()
@@ -22,7 +22,7 @@ Question Link -
             
         return answer
         
-        Optimal #1 - Time O(n), Space O(n) 
+        Optimal #1 - Time O(n), Space O(n) #Accepted
         Trick(Same concept as above but using extra list ng to calculate our answer)
         
         """"n, stack = len(temperatures), deque()
@@ -49,7 +49,7 @@ Question Link -
         
         return answer"""
         
-        Brute Force - Time O(n2), Space O(1) 
+        Brute Force - Time O(n2), Space O(1) #TLE
         Trick(Nothing clever)
         
         """"answer = []
