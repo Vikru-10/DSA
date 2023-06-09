@@ -1,0 +1,66 @@
+Question Link - 
+
+        Solution #3 - Time O(nlogn), Space O(n) #Accepted
+        Trick(Without using stack and stack even not needed because many solutions are possible but still the space complexity remains the same due to using list of tuples we are using)
+
+        """"ps, fleet = [], 0
+        
+        for i in range(len(position)):
+            ps.append((position[i],speed[i]))
+        ps.sort(key = lambda x : x[0], reverse=True)
+       
+        prevreach = -1
+        
+        for i in range(len(position)):
+            reach = (target-ps[i][0])/ps[i][1]
+            if(prevreach==-1):
+                fleet += 1
+                prevreach = reach
+            if reach>prevreach:
+                fleet += 1
+                prevreach = reach
+            
+        return fleet"""
+        
+        Solution #2 - Time O(nlogn), Space O(n) #Accepted
+        Trick(With stack by storing directly calculations by observing position, speed and target but space again same)
+        
+        """"ps, stack = [], deque()
+        for i in range(len(position)):
+            ps.append((position[i],speed[i]))
+        ps.sort(key = lambda x : x[0], reverse=True)
+       
+        for i in range(len(position)):
+            reach = (target-ps[i][0])/ps[i][1]
+            stack.append(reach)
+            if len(stack)>=2 and stack[-1]<=stack[-2]:
+                stack.pop()
+        
+        return len(stack)"""
+        
+        Solution #3 - Time O(nlogn), Space O(n) #Accepted
+        Trick(With stack by storing pairs and then extracting one by one and doing calculations by observing position, speed and target)
+        
+        """"ps, stack = [], deque()
+        
+        for i in range(len(position)):
+            ps.append((position[i],speed[i]))
+        ps.sort(key = lambda x : x[0])
+        
+        for i in range(len(position)-1,-1,-1):
+            pair = ps[i]
+            
+            if not stack:
+                stack.append(pair)
+            else:
+                p1, s1 = stack[-1][0], stack[-1][1]
+                p2, s2 = pair[0], pair[1]
+                
+                if(s1==s2):
+                    stack.append(pair)
+                else:
+                    move1, move2 = (target-p1)/s1, (target-p2)/s2
+                    if(move1<move2):
+                        stack.append(pair)
+        
+        return len(stack)"""
