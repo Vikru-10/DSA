@@ -1,4 +1,4 @@
-Question Link - 
+Question Link - https://leetcode.com/problems/largest-rectangle-in-histogram/ 
 
         Most Optimal - Time O(n), Space O(n) #Accepted
         Trick(To find next left smaller element and next right smaller element but we are storing it in two arrays nls,nrs of each index)
