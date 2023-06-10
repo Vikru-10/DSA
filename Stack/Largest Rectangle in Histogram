@@ -1,0 +1,56 @@
+Question Link - 
+
+        Most Optimal - Time O(n), Space O(n) #Accepted
+        Trick(To find next left smaller element and next right smaller element but we are storing it in two arrays nls,nrs of each index)
+
+        """"n = len(heights)
+        stack, nrs, nls, maxheight = deque(), [0]*n, [0]*n, -1
+        nrs[n-1], nls[0] = n, -1
+        stack.append(n-1)
+        
+        for i in range(n-2,-1,-1):
+            value = heights[i]
+            while stack and heights[stack[-1]]>=value:
+                stack.pop()
+            if not stack:
+                nrs[i] = n 
+            else:
+                nrs[i] = stack[-1]
+            stack.append(i)
+    
+        stack = deque()
+        stack.append(0)
+        
+        for i in range(1,n):
+            value = heights[i]
+            while stack and heights[stack[-1]]>=value:
+                stack.pop()
+            if not stack:
+                nls[i] = -1
+            else:
+                nls[i] = stack[-1]
+            stack.append(i)
+        
+        for i in range(n):
+            maxheight = max(maxheight,(((nrs[i]-1)-(nls[i]+1))+1)*heights[i])
+            
+        return maxheight"""
+        
+        Brute Force - Time O(n2), Space O(n) #TLE
+        Trick(To find next left smaller and next right smaller of each index)
+        
+        """"maxheight = 0
+        for i in range(len(heights)):
+            l, r = i-1, i+1
+            while(l>=0):
+                if(heights[l]<heights[i]):
+                    break
+                l -= 1
+            while(r<len(heights)):
+                if(heights[r]<heights[i]):
+                    break
+                r += 1
+            l += 1
+            r -= 1
+            maxheight = max(maxheight,(r-l+1)*heights[i])
+        return maxheight"""
