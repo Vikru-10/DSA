@@ -1,0 +1,22 @@
+Question Link - 
+
+        Brute Force - Time O(n), Space O(1) #Accepted
+        Trick(Nothing clever, you just have to find the minimum element in an array)
+
+        """"return min(nums)"""
+        
+        Most Optimal - Time O(logn), Space O(1) #Accepted #Revisit
+        Trick(Think rotated sorted array as diving it into two portions - left sorted portion ( Always going to be bigger) and right sorted portion ( Always going to be smaller than left one ) then observe and move left, right)
+        
+        """"l, r, ans = 0, len(nums)-1, nums[0]
+        while(l<=r):
+            mid = l + (r-l)//2
+            if(nums[l]<nums[r]):
+                ans = min(ans,nums[l])
+            ans = min(ans,nums[mid])
+            if(nums[mid]>=nums[l]):
+                l = mid + 1
+            else:
+                r = mid - 1
+        return ans"""
+        
