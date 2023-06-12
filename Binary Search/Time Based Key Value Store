@@ -1,0 +1,47 @@
+Question Link - 
+
+    #We are concerned for get operation so will analyse the time complexity of that function
+    Brute Force - Time O(n), Space O(n2) #TLE
+    Trick(Linear Search)
+
+    def __init__(self):
+        self.hashmap = {}
+
+    def set(self, key: str, value: str, timestamp: int) -> None:
+        if key not in self.hashmap:
+            self.hashmap[key] = []
+        self.hashmap[key].append([value,timestamp])
+
+    def get(self, key: str, timestamp: int) -> str:
+        search = self.hashmap.get(key,[])
+        res = ""
+        for i in range(len(search)):
+            val, time = search[i][0], search[i][1]
+            if(time<=timestamp):
+                res = val
+        return res
+        
+    Most Optimal - Time O(logn), Space O(n2) #Accepted
+    Trick(Use binary search floor concept)
+    
+    """"def __init__(self):
+        self.hashmap = {}
+
+    def set(self, key: str, value: str, timestamp: int) -> None:
+        if key not in self.hashmap:
+            self.hashmap[key] = []
+        self.hashmap[key].append([value,timestamp])
+
+    def get(self, key: str, timestamp: int) -> str:
+        search = self.hashmap.get(key,[])
+        l, r = 0, len(search)-1
+        res = ""
+        while(l<=r):
+            mid = (l+r)//2
+            val, time = search[mid][0], search[mid][1]
+            if(time<=timestamp):
+                res = val
+                l = mid + 1
+            else:
+                r = mid - 1
+        return res"""
