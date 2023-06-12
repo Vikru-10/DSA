@@ -1,4 +1,4 @@
-Question Link - 
+Question Link - https://leetcode.com/problems/koko-eating-bananas/
 
         Brute Force - Time O(max(piles)*len(piles)), Space O(1) #TLE
         Trick(Simply counting if koko can eat bananas from speed 1 to max(piles))
