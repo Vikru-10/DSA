@@ -1,4 +1,4 @@
-Question Link - 
+Question Link - https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
 
         Brute Force - Time O(n), Space O(1) #Accepted
         Trick(Nothing clever, you just have to find the minimum element in an array)
