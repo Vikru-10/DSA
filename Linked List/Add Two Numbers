@@ -1,0 +1,37 @@
+Question Link - https://leetcode.com/problems/add-two-numbers/
+
+        Solution #1 - Time O(n), Space O(1) If avoid extra space of list which we have to return #Accepted
+        Trick(Pure math by observing, another solution exist by reversing it but can do it in this way by observing and storing the values in right order)
+
+        """"carry, head = 0, ListNode()
+        last = head
+        while l1 and l2:
+            sum = l1.val + l2.val + carry
+            carry = sum//10
+            newnode = ListNode(sum%10)
+            last.next = newnode
+            last = last.next
+            l1 = l1.next
+            l2 = l2.next
+            
+        while l1:
+            sum = l1.val + carry
+            carry = sum//10
+            newnode = ListNode(sum%10)
+            l1 = l1.next
+            last.next = newnode
+            last = last.next
+            
+        while l2:
+            sum = l2.val + carry
+            carry = sum//10
+            newnode = ListNode(sum%10)
+            l2 = l2.next
+            last.next = newnode
+            last = last.next
+        
+        if carry!=0:
+            newnode = ListNode(carry)
+            last.next = newnode
+            
+        return head.next"""
