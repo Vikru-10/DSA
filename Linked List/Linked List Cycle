@@ -1,0 +1,26 @@
+Question Link - https://leetcode.com/problems/linked-list-cycle/
+
+        Optimal - Time O(n), Space O(n) #Accepted
+        Trick(Using hashset)
+
+        """"hashset = set()
+        temp = head
+        while temp:
+            if temp in hashset:
+                return True
+            hashset.add(temp)
+            temp = temp.next
+        return False"""
+        
+        Most optimal - Time O(n), Space O(1) #Accepted
+        Trick(Using slow and fast pointer)
+        
+        """"if not head:
+            return False
+        slow, fast = head, head.next
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            if(slow==fast):
+                return True
+        return False"""
