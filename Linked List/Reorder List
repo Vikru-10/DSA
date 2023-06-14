@@ -1,0 +1,33 @@
+Question Link - https://leetcode.com/problems/reorder-list/
+      
+    Solution #1 - Time O(n), Space O(1) #Accepted
+    Trick(Reversing the next half)
+
+    def reverse(self, head : ListNode) -> ListNode:
+        if not head:
+            return None
+        newhead = head
+        if head.next:
+            newhead = self.reverse(head.next)
+            head.next.next = head
+        head.next = None
+        return newhead
+    
+    def reorderList(self, head: Optional[ListNode]) -> None:
+        slow, fast = head, head.next
+        while fast and fast.next and fast.next.next:
+            slow = slow.next
+            fast = fast.next.next
+        reversenode = slow.next
+        slow.next = None
+        reversenode = self.reverse(reversenode)
+        newhead, temp = ListNode(), head
+        last = newhead
+        while reversenode and temp:
+            last.next = temp
+            temp = temp.next
+            last = last.next
+            last.next = reversenode
+            reversenode = reversenode.next
+            last = last.next
+        return newhead
