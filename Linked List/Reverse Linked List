@@ -1,0 +1,25 @@
+Question Link - https://leetcode.com/problems/reverse-linked-list/
+
+        Solution #1 - Time O(n), Space O(1) If avoid stacttrace #Accepted #Revisit
+        Trick(Using recursion)
+
+        """if not head:
+            return None
+        newhead = head
+        if head.next:
+            newhead = self.reverseList(head.next)
+            head.next.next = head
+        head.next = None
+        return newhead"""
+            
+        Solution #2 - Time O(n), Space O(1) #Accepted
+        Trick(Using three pointers and observing how can we take help of them to reverse links)
+        
+        """"curr, prev, nxt = head, None, head
+        while(nxt!=None):
+            nxt = curr.next
+            curr.next = prev
+            prev = curr
+            curr = nxt
+        head = prev
+        return head"""
