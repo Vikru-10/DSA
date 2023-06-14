@@ -1,0 +1,36 @@
+Question Link - https://leetcode.com/problems/linked-list-cycle/
+
+        Brute Force - Time O(n2), Space O(1) #Accepted
+        Trick(Nothing clever)
+
+        """for i in range(len(nums)):
+            for j in range(i+1,len(nums)):
+                if(nums[i]==nums[j]):
+                    return nums[i]"""
+                    
+        Optimal - Time O(n), Space O(n) #Accepted
+        Trick(Using hashset to find duplicate)
+        
+        """hashset = set()
+        for num in nums:
+            if(num in hashset):
+                return num
+            hashset.add(num)"""
+        
+        Most Optimal - Time O(n), Space O(1) #Accepted #Revisit
+        Trick(Using floyd's algorithm, first identify this can be a linked list cycle detection problem and then Use slow and fast pointer with floyd's algo to determine the start of the cycle that would be your answer) 
+        
+        """slow, fast = 0, 0
+        while True:
+            slow = nums[slow]
+            fast = nums[nums[fast]]
+            if(slow==fast):
+                break
+        slow2 = 0
+        while True:
+            slow = nums[slow]
+            slow2 = nums[slow2]
+            print(slow,slow2)
+            if(slow==slow2):
+                break
+        return slow"""
