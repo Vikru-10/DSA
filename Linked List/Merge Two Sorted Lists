@@ -1,0 +1,49 @@
+Question Link - https://leetcode.com/problems/merge-two-sorted-lists/
+
+       Optimised Solution - Time O(n), Space O(1) #Accepted
+       Trick(Use dummy with two pointers pointing at it, it always works when we have to reorder to connect, very very best technique)
+
+        """"head = ListNode(0,None)
+        last = head
+        while list1 and list2:
+            if list1.val<=list2.val:
+                last.next = list1
+                list1 = list1.next
+            else:
+                last.next = list2
+                list2 = list2.next
+            last = last.next
+            last.next = None
+        if list1:
+            last.next = list1
+        elif list2:
+            last.next = list2
+        return head.next
+        """       
+        
+        Brute Force - Time O(n), Space O(n) #Accepted
+        Trick(Nothing clever)
+        
+        """"head = ListNode(0,None)
+        temp = head
+        while list1 and list2:
+            if(list1.val<=list2.val):
+                newnode = ListNode(list1.val,None)
+                temp.next = newnode
+                list1 = list1.next
+            else:
+                newnode = ListNode(list2.val,None)
+                temp.next = newnode
+                list2 = list2.next
+            temp = temp.next
+        while list1:
+            newnode = ListNode(list1.val,None)
+            temp.next = newnode
+            temp = newnode
+            list1 = list1.next
+        while list2:
+            newnode = ListNode(list2.val,None)
+            temp.next = newnode
+            temp = newnode
+            list2 = list2.next
+        return head.next"""
