@@ -1,0 +1,41 @@
+Question Link - https://leetcode.com/problems/copy-list-with-random-pointer/
+
+        Most optimal - Time O(n), Space O(1) (Avoiding extra space of the copy list which we have to return) #Accepted #Revisit
+        Trick(Creating copy of each node and pointing them simultaneously, clever one)
+
+        """temp = head
+        while temp:
+            newnode = Node(temp.val)
+            newnode.next = temp.next
+            temp.next = newnode
+            temp = newnode.next
+        temp = head
+        while temp:
+            if temp.random:
+                temp.next.random = temp.random.next
+            else:
+                temp.next.random  = None
+            temp = temp.next.next
+        first, temp = Node(0), head
+        last = first
+        while temp:
+            last.next = temp.next
+            last = last.next
+            temp.next = last.next
+            temp = temp.next
+        return first.next"""
+        
+        Optimal Solution - Time O(n), Space O(n) #Accepted
+        Trick(Using hashmap and mapping them key as old and value as copy of the node)
+        
+        """hashmap, temp = {}, head
+        while temp:
+            hashmap[temp] = Node(temp.val)
+            temp = temp.next
+        temp = head
+        while temp:
+            newcopy = hashmap.get(temp)
+            newcopy.next = hashmap.get(temp.next)
+            newcopy.random = hashmap.get(temp.random)
+            temp = temp.next
+        return hashmap.get(head)"""
