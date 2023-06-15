@@ -1,6 +1,6 @@
 Question Link - https://leetcode.com/problems/lru-cache/
 
-#One of the hell of the questions in terms of implementing
+#One of hell of the questions in terms of implementing
 Most Optimal - Time O(1) Get-Put, Space O(n) #Accepted #Revisit
 Trick(Using doubly node as a value in a hashmap and taking advantage of doubly linked list)
 
