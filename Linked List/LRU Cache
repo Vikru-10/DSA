@@ -1,0 +1,50 @@
+Question Link - https://leetcode.com/problems/lru-cache/
+
+#One of the hell of the questions in terms of implementing
+Most Optimal - Time O(1) Get-Put, Space O(n) #Accepted #Revisit
+Trick(Using doubly node as a value in a hashmap and taking advantage of doubly linked list)
+
+class Node:
+    def __init__(self,key,value):
+        self.key, self.value = key, value
+        self.prev = self.next = None
+
+class LRUCache:
+
+    def __init__(self, capacity: int):
+        self.cache, self.capacity, self.head, self.last = {}, capacity, Node(0,0), Node(0,0)
+        self.head.next, self.last.prev = self.last, self.head
+        
+    def remove(self,node): 
+        node.prev.next = node.next
+        node.next.prev = node.prev
+        
+    def insert(self,node):
+        node.prev = self.last.prev
+        node.next = self.last
+        self.last.prev.next = node
+        self.last.prev = node
+
+    def get(self, key: int) -> int:
+        if key in self.cache: 
+            node = self.cache[key]
+            self.remove(node)    
+            self.insert(node)
+            return self.cache[key].value
+        return -1
+
+    def put(self, key: int, value: int) -> None:
+    
+        if key in self.cache:
+            self.cache[key].value = value
+            node = self.cache[key]
+            self.remove(node)
+            self.insert(node)
+        else:
+            newnode = Node(key,value)
+            if len(self.cache)==self.capacity:
+                node = self.cache[self.head.next.key]
+                self.remove(node)
+                del self.cache[node.key] 
+            self.insert(newnode)
+            self.cache[key] = newnode
