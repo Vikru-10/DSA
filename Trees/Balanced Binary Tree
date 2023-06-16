@@ -25,15 +25,15 @@ Question Link - https://leetcode.com/problems/balanced-binary-tree/
         
         return True
 
-    Most Optimal - Time O(n), Space O(1) #Accepted
-    Trick(Cleverly taking the help of helper function to find both (height and check balancing) at the same time)
+     Most Optimal - Time O(n), Space O(1) #Accepted
+     Trick(Cleverly taking the advantage of helper function to find both (height and check balancing) at the same time)
     
-    """def isBalanced(self, root: Optional[TreeNode]) -> bool:
+      """def isBalanced(self, root: Optional[TreeNode]) -> bool:
         res = [True]
         self.helper(root,res)
         return res[0]
     
-    def helper(self,root,res):
+      def helper(self,root,res):
         if not root:
             return 0
         left = self.helper(root.left,res)
