@@ -1,0 +1,10 @@
+Question Link - https://leetcode.com/problems/invert-binary-tree/
+
+        Solution #1 - Time O(n), Space O(1) Avoiding Stacktrace Space #Accepted
+
+        """if not root:
+            return None
+        left = self.invertTree(root.left)
+        right = self.invertTree(root.right)
+        root.left, root.right = right, left
+        return root"""
