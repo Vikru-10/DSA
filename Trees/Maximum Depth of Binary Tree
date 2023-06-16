@@ -1,0 +1,24 @@
+Question Link - https://leetcode.com/problems/maximum-depth-of-binary-tree/
+
+    Most Optimal - Time O(n), Space O(1) #Accepted
+    Trick(Finding height for each node by finding max between left and right then adding root node's height as 1, for each node)
+
+    def maxDepth(self, root: Optional[TreeNode]) -> int:
+        if not root:
+            return 0
+        return 1 + max(self.maxDepth(root.left),self.maxDepth(root.right))
+
+    Optimal - Time O(n), Space O(1) #Accepted
+    Trick(Taking help of helper function + maxheight variable where height is incrementing at each level and comparing the height with maxheight)
+
+    """maxheight = 0
+    def maxDepth(self, root: Optional[TreeNode]) -> int:
+        self.helper(root,0)
+        return self.maxheight
+        
+    def helper(self,root,height):
+        if not root:
+            self.maxheight = max(self.maxheight,height)
+            return
+        self.helper(root.left,height+1)
+        self.helper(root.right,height+1)"""
