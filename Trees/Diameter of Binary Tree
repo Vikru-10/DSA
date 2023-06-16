@@ -22,7 +22,7 @@ Question Link - https://leetcode.com/problems/diameter-of-binary-tree/
         self.helper(root.left)
         self.helper(root.right)
 
-    Most Optimal - Time O(n), Space O(1) #Accepted
+    Most Optimal - Time O(n), Space O(1) #Accepted #Revisit
     Trick(Calculating height and diameter at the same time, also taking help of can say third variable but this time we are passing it as a list of one length for mutability and persistent of the value)
   
     """def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
