@@ -1,6 +1,7 @@
 Question Link - https://leetcode.com/problems/invert-binary-tree/
 
         Solution #1 - Time O(n), Space O(1) Avoiding Stacktrace Space #Accepted
+        Trick(Doing modification in postorder by swapping the address of left and right child of each root node, in python this can be done in this way at the same time but in other languages you can have temp variable)
 
         """if not root:
             return None
