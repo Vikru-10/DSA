@@ -1,0 +1,39 @@
+Question Link - https://leetcode.com/problems/diameter-of-binary-tree/
+
+    Brute Force - Time O(n2), Space O(1) #Accepted
+    Trick(Calculating height at each node and finding diameter as left + right (height of a node))
+
+    """maxi = 0
+    def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
+        self.helper(root)
+        return self.maxi
+        
+    def height(self,root) -> int:
+        if not root:
+            return 0
+        return max(self.height(root.left),self.height(root.right)) + 1
+    
+    def helper(self,root):
+        if not root:
+            return
+        lh = self.height(root.left)
+        rh = self.height(root.right)
+        self.maxi = max(self.maxi,lh+rh)
+        self.helper(root.left)
+        self.helper(root.right)
+
+    Most Optimal - Time O(n), Space O(1) #Accepted
+    Trick(Calculating height and diameter at the same time, also taking help of can say third variable but this time we are passing it as a list of one length for mutability and persistent of the value)
+  
+    """def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
+        maxi = [0]
+        self.dia(root,maxi)
+        return maxi[0]
+    
+    def dia(self,root,maxi):
+        if not root:
+            return 0
+        left = self.dia(root.left,maxi)
+        right = self.dia(root.right,maxi)
+        maxi[0] = max(maxi[0],left+right)
+        return 1 + max(left,right)"""
