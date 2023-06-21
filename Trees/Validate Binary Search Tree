@@ -1,0 +1,48 @@
+Question Link - https://leetcode.com/problems/validate-binary-search-tree/
+
+    Most Optimal - Time O(n), Space O(1) #Accepted #Revisit
+    Trick(Create left and right boundary and search between them)
+
+    """"def isValidBST(self,root: Optional[TreeNode]) -> bool:
+        return self.valid(root,-math.inf,math.inf)
+    
+    def valid(self,root,lb,rb) -> bool:
+        if not root:
+            return True
+        if not lb<root.val<rb:
+            return False
+        left = self.valid(root.left,lb,root.val)
+        right = self.valid(root.right,root.val,rb)
+        if not left or not right:
+            return False
+        return True"""
+
+    Brute Force - Time O(n2), Space O(1) #Accepted  
+    Trick(Find max from the left and minimum from the right and then compare with the root, repeat for all nodes)
+    
+    """def isValidBST(self, root: Optional[TreeNode]) -> bool:
+        if not root:
+            return True
+        lmax = self.findmax(root.left)
+        rmin = self.findmin(root.right)
+        if lmax>=root.val or rmin<=root.val:
+            return False
+        left = self.isValidBST(root.left)
+        right = self.isValidBST(root.right)
+        
+        if not left or not right:
+            return False
+        
+        return True
+
+    def findmax(self,root):
+        if not root:
+            return -math.inf
+        return max(root.val,max(self.findmax(root.left),self.findmax(root.right)))
+    
+    
+    def findmin(self,root):
+        if not root:
+            return math.inf
+        return min(root.val,min(self.findmin(root.left),self.findmin(root.right)))"""
+        
