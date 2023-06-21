@@ -1,0 +1,57 @@
+Question Link - https://leetcode.com/problems/subtree-of-another-tree/
+
+    Brute Force - Time O(n2), Space O(1) #Accepted 
+    Trick(Check every node if it is same tree)
+
+    """def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+        if not p and not q:
+            return True
+        elif not p or not q:
+            return False
+        
+        if p.val!=q.val:
+            return False
+        
+        left = self.isSameTree(p.left,q.left)
+        right = self.isSameTree(p.right,q.right)
+        
+        if not left or not right:
+            return False
+        
+        return True
+    
+    def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
+        if not root:
+            return False
+        if self.isSameTree(root,subRoot):
+            return True
+        left = self.isSubtree(root.left,subRoot)
+        right = self.isSubtree(root.right,subRoot)
+        if left or right:
+            return True
+        return False"""
+
+    Most Optimal - Time O(n), Space O(len(s1) + len(s2)) #Accepted #Revisit
+    Trick(Using serialization technique and then comparing two strings but be careful in case like 12, 2 we have to define each char sepearately so use ())
+
+    """def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
+        self.s1, self.s2 = "", ""
+        self.serialroot(root)
+        self.serialsubroot(subRoot)
+        return self.s2 in self.s1
+        
+    def serialroot(self,root):
+        if not root:
+            self.s1 += "N"
+            return
+        self.s1 += "("+str(root.val)+")"
+        self.serialroot(root.left)
+        self.serialroot(root.right)
+        
+    def serialsubroot(self,root):
+        if not root:
+            self.s2 += "N"
+            return
+        self.s2 += "("+str(root.val)+")"
+        self.serialsubroot(root.left)
+        self.serialsubroot(root.right)"""
