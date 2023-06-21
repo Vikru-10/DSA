@@ -1,0 +1,34 @@
+Question Link - https://leetcode.com/problems/serialize-and-deserialize-binary-tree/
+
+Solution #1 - Time O(n), Space O(len(str)) #Accepted
+Trick(Use string to serialize then split the string into list then form tree)
+
+class Codec:
+
+    def serialize(self, root):
+        self.str = ""        
+        self.serial(root)
+        return self.str
+    
+    def serial(self,root):
+        if not root:
+            self.str += "," + "N"
+            return
+        self.str += "," + str(root.val)
+        self.serial(root.left)
+        self.serial(root.right)
+        
+    def deserialize(self, data):
+        tree = data.split(",")
+        self.index = 1
+        return self.deserial(tree)
+    
+    def deserial(self,tree):
+        if self.index==len(tree) or tree[self.index]=="N":
+            self.index += 1
+            return None
+        root = TreeNode(int(tree[self.index]))
+        self.index += 1
+        root.left = self.deserial(tree)
+        root.right = self.deserial(tree)
+        return root
