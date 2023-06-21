@@ -1,0 +1,29 @@
+Question Link - https://leetcode.com/problems/count-good-nodes-in-binary-tree/
+
+    Most Optimal (Pure dfs) - Time O(n), Space O(1) #Accepted
+    Trick(Same Trick)
+
+    """def goodNodes(self, root: TreeNode) -> int:
+            return self.good(root,root.val)
+        def good(self,root,maxi) -> int:
+            if not root:
+                return 0
+            res = 1 if maxi<=root.val else 0
+            maxi = max(maxi,root.val)
+            return res + self.good(root.left,maxi) + self.good(root.right,maxi)"""
+
+    Optimal (With third variable) - Time O(n), Space O(1) Res size will be always 1 #Accepted
+    Trick(Track maximum while visiting paths)
+
+        """def goodNodes(self, root: TreeNode) -> int:
+        res = [0]
+        self.good(root,res,root.val)
+        return res[0]
+    
+    def good(self,root,res,maxi):
+        if not root:
+            return
+        if maxi<=root.val:
+            res[0] += 1
+        self.good(root.left,res,max(maxi,root.val))
+        self.good(root.right,res,max(maxi,root.val))"""
