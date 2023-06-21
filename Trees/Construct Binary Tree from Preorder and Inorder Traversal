@@ -1,0 +1,20 @@
+Question Link - https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
+
+    #Implementation #1 - Time O(len(preorder)), Space O(1) #Accepted
+    Trick(Remember inorder start and inorder end technique and manipulate left and right according to that)
+
+    """def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
+        self.hashmap, self.index = {}, 0
+        for i in range(len(inorder)):
+            self.hashmap[inorder[i]] = i
+        return self.create(preorder,inorder,0,len(inorder))
+    
+    def create(self,preorder,inorder,left,right):
+        if left>right or self.index>=len(preorder):
+            return None
+        root = TreeNode(preorder[self.index])
+        mid = self.hashmap.get(root.val)
+        self.index += 1
+        root.left = self.create(preorder,inorder,left,mid-1)
+        root.right = self.create(preorder,inorder,mid+1,right)
+        return root"""
