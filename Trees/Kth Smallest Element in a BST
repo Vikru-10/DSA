@@ -1,0 +1,21 @@
+Question Link - https://leetcode.com/problems/kth-smallest-element-in-a-bst/
+
+    Solution #1 - Time O(n), Space O(1) #Accepted
+    Trick(Use inorder and observe something)
+
+    def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
+        return self.helper(root,[k])
+    
+    def helper(self,root,kth):
+        if not root:
+            return -1
+        left = self.helper(root.left,kth)
+        kth[0] -= 1
+        if kth[0]==0:
+            return root.val
+        right = self.helper(root.right,kth)
+        if left!=-1:
+            return left 
+        if right!=-1:
+            return right 
+        return -1
