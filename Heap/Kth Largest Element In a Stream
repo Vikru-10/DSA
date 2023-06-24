@@ -1,1 +1,40 @@
-Question Link - 
+Question Link - https://leetcode.com/problems/kth-largest-element-in-a-stream/submissions/
+
+Optimal - Time O(nlogn), Space O(n) For the list #Accepted
+Trick(Sorting)
+
+"""class KthLargest:
+    def __init__(self, k: int, nums: List[int]):
+        self.list = nums
+        self.kth = k
+        
+    def add(self, val: int) -> int:
+        self.list.append(val)
+        self.list.sort()
+        return self.list[len(self.list)-self.kth]"""
+
+More Optimal - Time O(klogn), Space O(n) #Accepted
+Trick(Min Heap, You can write in another way as well by just replacing the comparison check with size and also you can use simultaneously heap function i.e pushpop)
+
+"""class KthLargest:
+
+    def __init__(self, k: int, nums: List[int]):
+        self.heap = []
+        self.size = k
+        heapq.heapify(self.heap)
+        for num in nums:
+            if len(self.heap)<k:
+                heapq.heappush(self.heap,num)
+            else:
+                if self.heap[0]<num:
+                    heapq.heappop(self.heap)
+                    heapq.heappush(self.heap,num)
+
+    def add(self, val: int) -> int:
+        if len(self.heap)<self.size:
+            heapq.heappush(self.heap,val)
+        else:
+            if self.heap[0]<val:
+                heapq.heappop(self.heap)
+                heapq.heappush(self.heap,val)
+        return self.heap[0]"""
