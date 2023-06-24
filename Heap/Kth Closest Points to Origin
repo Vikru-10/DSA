@@ -1,1 +1,20 @@
-Question Link - 
+Question Link - https://leetcode.com/problems/k-closest-points-to-origin/
+
+    Optimal - Time O(klogn), Space O(n) #Accepted #Revisit
+    Trick(Use max heap)
+
+    def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
+        heap = []
+        heapq.heapify(heap)
+        for i in range(len(points)):
+            x, y = points[i][0], points[i][1]
+            res = math.sqrt((x*x)+(y*y))
+            if len(heap)<k:
+                heapq.heappush(heap,[-res,x,y])
+            else:
+                heapq.heappushpop(heap,[-res,x,y])
+        res = []
+        while heap:
+            pair = heapq.heappop(heap)
+            res.append((pair[1],pair[2]))
+        return res
