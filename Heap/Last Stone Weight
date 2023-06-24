@@ -1,1 +1,15 @@
-Question Link - 
+Question Link - https://leetcode.com/problems/last-stone-weight/
+
+        Solution #1 - Time O(nlogn), Space O(n) #Accepted
+        Trick(Use any heap)
+
+        """heap = []
+        for stone in stones:
+            heapq.heappush(heap,-stone)
+        while len(heap)>1:
+            y, x = heapq.heappop(heap), heapq.heappop(heap)
+            if x!=y:
+                heapq.heappush(heap,y-x)
+        if heap:
+            return -heap[0]
+        return 0"""
