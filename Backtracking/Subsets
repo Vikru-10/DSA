@@ -1,0 +1,17 @@
+Question Link - https://leetcode.com/problems/subsets/
+
+    Solution #1 - Time O(2^n), Space O(1) #Accepted
+    Trick(Pick and non-pick concept)
+
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        ans = []
+        self.sub(nums,0,[],ans)
+        return ans
+    def sub(self,nums,index,subset,ans):
+        if index==len(nums):
+            ans.append(copy.copy(subset))
+            return
+        subset.append(nums[index])
+        self.sub(nums,index+1,subset,ans)
+        subset.pop(len(subset)-1)
+        self.sub(nums,index+1,subset,ans)
