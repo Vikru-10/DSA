@@ -1,0 +1,21 @@
+Question Link - https://leetcode.com/problems/combination-sum/
+
+    Solution #1 - Time O(2^n), Space O(1) #Accepted
+    Trick(Pick and non-pick)
+
+    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+        lst, ans = [], []
+        self.comb(0,candidates,target,lst,ans)
+        return ans
+        
+    def comb(self,index,candidates,target,lst,ans):
+        if index>=len(candidates) or target<0:
+            if target==0:
+                ans.append(copy.copy(lst))
+            return
+        
+        val = candidates[index]
+        lst.append(val)
+        self.comb(index,candidates,target-val,lst,ans)
+        lst.remove(val)
+        self.comb(index+1,candidates,target,lst,ans)
