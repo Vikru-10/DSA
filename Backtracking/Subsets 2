@@ -1,0 +1,39 @@
+Question Link - 
+
+    Optimal in terms of space - Time (2^n), Space O(1) #Accepted
+    Trick(Using sorting and generating subsets on each element with checking index to avoid duplication)
+
+    """"def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
+        nums.sort()
+        ans = []
+        self.sub(0,nums,[],ans)
+        return ans
+        
+    def sub(self,index,nums,lst,ans):
+        ans.append(copy.copy(lst))
+        for i in range(index,len(nums)):
+            if i!=index and nums[i]==nums[i-1]:
+                continue
+            lst.append(nums[i])
+            self.sub(i+1,nums,lst,ans)
+            lst.pop(len(lst)-1)""""
+    
+    Optimal in terms of space - Time (2^n), Space O(2^n) #Accepted
+    Trick(Using sorting and pick, non-pick method with hashset to avoid duplicates)
+
+    """def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
+        ans, hashset = [], set()
+        nums.sort()
+        self.sub(0,nums,[],ans,hashset)
+        return hashset
+    
+    def sub(self,index,nums,subset,ans,hashset):
+        if index==len(nums):
+            hashset.add(tuple(copy.copy(subset)))
+            return
+        
+        value = nums[index]
+        subset.append(value)
+        self.sub(index+1,nums,subset,ans,hashset)
+        subset.pop(len(subset)-1)
+        self.sub(index+1,nums,subset,ans,hashset)"""
