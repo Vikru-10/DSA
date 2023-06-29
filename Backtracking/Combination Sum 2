@@ -1,0 +1,45 @@
+Question Link - https://leetcode.com/problems/combination-sum-ii/
+
+Solution #1 - Time O(2^n), Space O(2^n) #TLE
+Trick(Pick non-pick with sorting and hashset)
+
+"""def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
+            hashset = set()
+            candidates.sort()
+            self.sum(0,candidates,hashset,target,[])
+            return hashset
+        
+        def sum(self,index,candidates,hashset,target,subset):
+            if index==len(candidates):
+                if target==0:
+                    hashset.add(tuple(copy.copy(subset)))
+                return
+            value = candidates[index]
+            subset.append(value)
+            self.sum(index+1,candidates,hashset,target-value,subset)
+            subset.pop(len(subset)-1)
+            self.sum(index+1,candidates,hashset,target,subset)"""
+
+Solution #2 - Time O(2^n), Space O(1) #Accepted #Revisit
+Trick(Using sorting and to avoid duplicates, can use index technique)
+    
+"""def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
+        ans = []
+        candidates.sort()
+        self.sum(0,candidates,[],target,ans)
+        return ans
+    
+    def sum(self,index,candidates,subset,target,ans):
+        if target<0:
+            return 
+        
+        if target==0:
+            ans.append(copy.copy(subset))
+        
+        for i in range(index,len(candidates)):
+            if i!=index and candidates[i]==candidates[i-1]:
+                continue
+            value = candidates[i]
+            subset.append(value)
+            self.sum(i+1,candidates,subset,target-value,ans)
+            subset.pop(len(subset)-1)"""
