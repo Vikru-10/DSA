@@ -1,0 +1,26 @@
+Question Link - https://leetcode.com/problems/permutations/
+
+    Optimal - Time (n!*n), Space O(1) #Accepted #Revisit
+    Trick(Swapping with generating the permutation for each element)
+
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        ans = []
+        self.per(nums,0,[],ans)
+        return ans
+    
+    def swap(self,i1,i2,nums):
+        temp = nums[i1]
+        nums[i1] = nums[i2]
+        nums[i2] = temp
+    
+    def per(self,nums,index,lst,ans):
+        if index>=len(nums):
+            ans.append(copy.copy(nums))
+            return
+        
+        for i in range(index,len(nums)):
+            self.swap(i,index,nums)
+            print(i,index,nums,"Going")
+            self.per(nums,index+1,lst,ans)
+            self.swap(index,i,nums)
+            print(i,index,nums,"Returning")
