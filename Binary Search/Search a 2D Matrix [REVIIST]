@@ -10,7 +10,7 @@ Question Link - https://leetcode.com/problems/search-a-2d-matrix/
                     return True
         return False
         
-        Most Optimal - Time O(log(m*n)), Space O(1) #Accepted, #Revisit 
+        Most Optimal - Time O(log(m*n)), Space O(1) #Accepted
         Trick(Pure binary search implementation nothing else, just thing about how you can represent x,y coordinates by mid with rows or columns)
         
         """"m, n = len(matrix), len(matrix[0])
