@@ -1,6 +1,6 @@
 Question Link - https://leetcode.com/problems/permutations/
 
-    Optimal - Time (n!*n), Space O(1) #Accepted #Revisit
+    Optimal - Time (n!*n), Space O(1) #Accepted 
     Trick(Swapping with generating the permutation for each element)
 
     def permute(self, nums: List[int]) -> List[List[int]]:
