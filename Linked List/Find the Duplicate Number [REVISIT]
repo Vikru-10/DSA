@@ -17,7 +17,7 @@ Question Link - https://leetcode.com/problems/linked-list-cycle/
                 return num
             hashset.add(num)"""
         
-        Most Optimal - Time O(n), Space O(1) #Accepted #Revisit
+        Most Optimal - Time O(n), Space O(1) #Accepted 
         Trick(Using floyd's algorithm, first identify this can be a linked list cycle detection problem and then Use slow and fast pointer with floyd's algo to determine the start of the cycle that would be your answer) 
         
         """slow, fast = 0, 0
