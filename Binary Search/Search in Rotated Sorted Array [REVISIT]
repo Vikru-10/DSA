@@ -8,7 +8,7 @@ Question Link - https://leetcode.com/problems/search-in-rotated-sorted-array/
                 return i
         return -1"""
         
-        Most Optimal - Time O(logn), Space O(1) #Accepted #Revisit
+        Most Optimal - Time O(logn), Space O(1) #Accepted 
         Trick(It may look like dangerous but it is not if you have done find minimum in rotated sorted array because it is based on that left and right sorted portion concept, think about various cases that can be involved in rotated sorted array then shift left and right according to that)
         
         """"l, r = 0, len(nums)-1
