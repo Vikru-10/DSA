@@ -20,7 +20,7 @@ Trick(Pick non-pick with sorting and hashset)
             subset.pop(len(subset)-1)
             self.sum(index+1,candidates,hashset,target,subset)"""
 
-Solution #2 - Time O(2^n), Space O(1) #Accepted #Revisit
+Solution #2 - Time O(2^n), Space O(1) #Accepted 
 Trick(Using sorting and to avoid duplicates, can use index technique)
     
 """def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
