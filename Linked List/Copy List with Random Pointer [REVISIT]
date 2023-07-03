@@ -1,6 +1,6 @@
 Question Link - https://leetcode.com/problems/copy-list-with-random-pointer/
 
-        Most optimal - Time O(n), Space O(1) (Avoiding extra space of the copy list which we have to return) #Accepted #Revisit
+        Most optimal - Time O(n), Space O(1) (Avoiding extra space of the copy list which we have to return) #Accepted 
         Trick(Creating copy of each node and pointing them simultaneously, clever one)
 
         """temp = head
