@@ -18,7 +18,7 @@ Question Link - https://leetcode.com/problems/subsets-ii/
             self.sub(i+1,nums,lst,ans)
             lst.pop(len(lst)-1)""""
     
-    Optimal in terms of space - Time (2^n), Space O(2^n) #Accepted #Revisit
+    Optimal in terms of space - Time (2^n), Space O(2^n) #Accepted 
     Trick(Using sorting and pick, non-pick method with hashset to avoid duplicates)
 
     """def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
