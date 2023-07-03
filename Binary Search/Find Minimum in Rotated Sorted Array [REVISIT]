@@ -5,7 +5,7 @@ Question Link - https://leetcode.com/problems/find-minimum-in-rotated-sorted-arr
 
         """"return min(nums)"""
         
-        Most Optimal - Time O(logn), Space O(1) #Accepted #Revisit
+        Most Optimal - Time O(logn), Space O(1) #Accepted 
         Trick(Think rotated sorted array as diving it into two portions - left sorted portion ( Always going to be bigger) and right sorted portion ( Always going to be smaller than left one ) then observe and move left, right)
         
         """"l, r, ans = 0, len(nums)-1, nums[0]
