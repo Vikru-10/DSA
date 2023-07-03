@@ -1,6 +1,6 @@
 Question Link - https://leetcode.com/problems/validate-binary-search-tree/
 
-    Most Optimal - Time O(n), Space O(1) #Accepted #Revisit
+    Most Optimal - Time O(n), Space O(1) #Accepted 
     Trick(Create left and right boundary and search between them)
 
     """"def isValidBST(self,root: Optional[TreeNode]) -> bool:
