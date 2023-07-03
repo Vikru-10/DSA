@@ -31,7 +31,7 @@ Question Link - https://leetcode.com/problems/subtree-of-another-tree/
             return True
         return False"""
 
-    Most Optimal - Time O(n), Space O(len(s1) + len(s2)) #Accepted #Revisit
+    Most Optimal - Time O(n), Space O(len(s1) + len(s2)) #Accepted 
     Trick(Using serialization technique and then comparing two strings but be careful in case like 12, 2 we have to define each char sepearately so use ())
 
     """def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
