@@ -1,6 +1,6 @@
 Question Link - https://leetcode.com/problems/k-closest-points-to-origin/
 
-    Optimal - Time O(klogn), Space O(n) #Accepted #Revisit
+    Optimal - Time O(klogn), Space O(n) #Accepted 
     Trick(Use max heap)
 
     def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
